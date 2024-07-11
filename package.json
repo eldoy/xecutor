@@ -8,14 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fugroup/xecutor.git"
+    "url": "https://github.com/eldoy/xecutor.git"
   },
   "scripts": {
-    "test": "jest --watch"
+    "test": "echo 'no test runner installed'"
   },
-  "author": "fugroup <vidar@fugroup.net>",
+  "author": "Vidar Eldøy <vidar@eldoy.com>",
   "license": "MIT",
-  "devDependencies": {
-    "jest": "^23.5.0"
+  "dependencies": {
+    "extras": "^0.13.3",
+    "farge": "^0.1.3"
   }
 }
