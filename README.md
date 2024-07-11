@@ -1,25 +1,52 @@
 # Shell command runner for Node.js
 
-Easily run shell commands from within Node.js
+Easily run shell commands from within Node.js, both locally and remote.
 
-### INSTALLATION
-```npm i xecutor``` or ```yarn add xecutor```
+### Installation
+```
+npm i xecutor
+```
 
-### USAGE
-```javascript
-const cmd = require('xecutor')
+### Usage
+```js
+var xecutor = require('xecutor')
+
+var terminal = new xecutor({
+  // The host name. Leave blank to run commands locally.
+  host: 'root@ecma',
+
+  // The dir to start executing commands in
+  dir: '/root'
+})
+
+terminal.history    // Log of all commands
+terminal.dir        // Last working directory
+
+
+var { $ } = terminal
 
 // Run a command
-cmd.run(`docker push fugroup/app`)
+var result = $(`ls -la`)
 
-// Run multiple commands
-cmd.run([
-  `rm -rf app/config`,
-  `cp -Rv ../app/config app`
-])
+result.stdout      // stdout output
+result.stderr      // stderr output
+result.code        // exit code
+result.dir         // the working directory
+result.command     // the last command executed
+result.executed    // the actual command including host and dir
+result.text        // the text from stdout or stderr
 
-// Run a command with options
-// Options are the same as Node.js child_process.exec
-cmd.run(`docker push fugroup/app`, { stdio: 'ignore' })
+// Change dir, commands will be executed here from now
+// Path must be absolute
+$.cd('/users/eldoy')
+
+// Returns current working dir
+$.pwd()
+
+// Get the local tmpdir
+$.tmpdir()
 ```
-Enjoy! MIT Licensed.
+
+MIT Licensed. Enjoy!
+
+Created by [Eldøy Projects](https://eldoy.com)

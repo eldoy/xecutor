@@ -23,3 +23,6 @@ assert.equal(executed, `ssh root@ecma 'cd /root/waveorb-server2 && ls -la'`)
 
 assert.equal($.pwd(), '/root/waveorb-server2')
 assert.ok($.tmpdir().startsWith('/'))
+
+var result = $(`ls -la`)
+console.log(result)
