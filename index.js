@@ -7,6 +7,10 @@ function xecutor(config = {}) {
   self.history = []
   self.dir = config.dir || process.cwd()
 
+  if (typeof config.limit == 'undefined') {
+    config.limit = 10_000
+  }
+
   var $ = function (command, options = {}) {
     var dir = options.dir != null ? options.dir : self.dir
     var host = options.host != null ? options.host : config.host
@@ -26,7 +30,9 @@ function xecutor(config = {}) {
     result.text = (result.stderr || result.stdout).trim()
 
     self.history.unshift(result)
-    self.history = self.history.slice(0, config.limit || 10_000)
+    if (config.limit) {
+      self.history = self.history.slice(0, config.limit)
+    }
 
     return result
   }

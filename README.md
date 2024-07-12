@@ -16,7 +16,11 @@ var terminal = new xecutor({
   host: 'root@ecma',
 
   // The dir to start executing commands in
-  dir: '/root'
+  dir: '/root',
+
+  // The limit of history items
+  // Set to 0 or null to disable history
+  history: 10_000
 })
 
 terminal.history    // Log of all commands
