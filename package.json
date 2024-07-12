@@ -1,6 +1,6 @@
 {
   "name": "xecutor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Shell command runner for Node.js",
   "main": "index.js",
   "directories": {
