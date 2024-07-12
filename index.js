@@ -8,8 +8,8 @@ function xecutor(config = {}) {
   self.dir = config.dir || process.cwd()
 
   var $ = function (command, options = {}) {
-    var dir = options.dir || self.dir
-    var host = options.host || config.host
+    var dir = options.dir != null ? options.dir : self.dir
+    var host = options.host != null ? options.host : config.host
 
     var executed = command
     if (dir) {
