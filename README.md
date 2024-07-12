@@ -12,10 +12,11 @@ npm i xecutor
 var xecutor = require('xecutor')
 
 var terminal = new xecutor({
-  // The host name. Leave blank to run commands locally, default is blank.
+  // The host name. Leave blank to run commands locally (default).
   host: 'root@ecma',
 
-  // The dir to start executing commands in, default is blank.
+  // The dir to start executing commands in.
+  // Default is your current dir for local, and the home dir for remote.
   dir: '/root',
 
   // The limit of history items, default is 10 000.
