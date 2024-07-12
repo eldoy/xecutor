@@ -12,13 +12,13 @@ npm i xecutor
 var xecutor = require('xecutor')
 
 var terminal = new xecutor({
-  // The host name. Leave blank to run commands locally.
+  // The host name. Leave blank to run commands locally, default is blank.
   host: 'root@ecma',
 
-  // The dir to start executing commands in
+  // The dir to start executing commands in, default is blank.
   dir: '/root',
 
-  // The limit of history items
+  // The limit of history items, default is 10 000.
   // Set to 0 or null to disable history
   history: 10_000
 })
