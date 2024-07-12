@@ -21,7 +21,7 @@ var terminal = new xecutor({
 
 terminal.history    // Log of all commands
 terminal.dir        // Last working directory
-
+terminal.id         // The unique id of this terminal
 
 var { $ } = terminal
 
