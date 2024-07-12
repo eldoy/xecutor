@@ -22,6 +22,7 @@ var terminal = new xecutor({
 terminal.history    // Log of all commands
 terminal.dir        // Last working directory
 
+
 var { $ } = terminal
 
 // Run a command
