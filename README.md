@@ -22,11 +22,16 @@ var terminal = new xecutor({
 terminal.history    // Log of all commands
 terminal.dir        // Last working directory
 
-
 var { $ } = terminal
 
 // Run a command
 var result = $(`ls -la`)
+
+// Temporarily override dir
+var result = $(`ls -la`, { dir: '/home' })
+
+// Temporarily override host
+var result = $(`ls -la`, { host: 'vidar@68.141.121.18' })
 
 result.stdout      // stdout output
 result.stderr      // stderr output
@@ -38,13 +43,16 @@ result.text        // the text from stdout or stderr
 
 // Change dir, commands will be executed here from now
 // Path must be absolute
-$.cd('/users/eldoy')
+$.cd(`/users/eldoy`)
 
 // Returns current working dir
 $.pwd()
 
-// Get the local tmpdir
+// Get the tmpdir
 $.tmpdir()
+
+// Change to tmpdir
+$.cd($.tmpdir())
 ```
 
 MIT Licensed. Enjoy!
