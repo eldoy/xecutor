@@ -39,7 +39,7 @@ function xecutor(config = {}) {
   }
 
   $.tmpdir = function () {
-    return os.tmpdir()
+    return self.host ? '/tmp' : os.tmpdir()
   }
 
   self.$ = $
