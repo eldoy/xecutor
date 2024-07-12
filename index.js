@@ -26,6 +26,7 @@ function xecutor(config = {}) {
     result.text = (result.stderr || result.stdout).trim()
 
     self.history.unshift(result)
+    self.history = self.history.slice(0, config.limit || 10_000)
 
     return result
   }
